@@ -1,0 +1,15 @@
+Serveur : CA
+
+echo "bob 2000 euros" >> compta.txt
+
+sudo yum install -y openssl
+
+openssl enc -aes-256-cbc -p -in compta.txt -out compta.txt.enc
+
+cat compta.txt.enc
+
+# password : iformtech
+
+openssl enc -d -aes-256-cbc -p -in compta.txt.enc -out compta.txt.dec
+
+cat compta.txt.dec

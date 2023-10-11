@@ -1,0 +1,12 @@
+CA VM:
+
+ssh-keygen -t rsa
+# without passphrase
+/home/vagrant/.ssh/id_rsa
+/home/vagrant/.ssh/id_rsa.pub
+
+# copy and paste id_rsa.pub on webserver VM in /home/vagrant/.ssh/authorized_keys
+
+
+ssh vagrant@192.168.40.20
+# accept fingerprint

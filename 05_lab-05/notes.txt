@@ -1,0 +1,10 @@
+echo "Bonjour, je vais quitter l'entreprise demain" > mail.txt 
+
+md5sum mail.txt
+# notez la valeur
+
+echo "c'était une blague" >> mail.txt
+
+md5sum mail.txt
+
+# comparez les deux valeurs

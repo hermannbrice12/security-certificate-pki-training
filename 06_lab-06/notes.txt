@@ -1,0 +1,59 @@
+# On CA
+
+# generate CA private key
+
+mkdir ~/certs
+cd ~/certs
+
+openssl genrsa -des3 -out CA.key 2048
+# passphrase = iformtech
+
+openssl req -x509 -new -nodes -key CA.key -sha256 -days 1825 -out CA.pem
+# passphrase = iformtech
+# Country Name (2 letter code) [XX]:FR
+# State or Province Name (full name) []:Haute-Garonne
+# Locality Name (eg, city) [Default City]:BALMA
+# Organization Name (eg, company) [Default Company Ltd]:iformtech
+# Organizational Unit Name (eg, section) []:IT
+# Common Name (eg, your name or your server's hostname) []:iformtech
+# Email Address []:contact@iformtech.fr
+
+# print CA details
+openssl x509 -in CA.pem -text
+
+# generate certificate key
+openssl genrsa -out iformtech.fr.key 2048
+
+# generate certificate request
+openssl req -new -key iformtech.fr.key -out iformtech.fr.csr
+
+
+# Country Name (2 letter code) [XX]:FR
+# State or Province Name (full name) []:Haute-Garonne
+# Locality Name (eg, city) [Default City]:BALMA
+# Organization Name (eg, company) [Default Company Ltd]:IT
+# Organizational Unit Name (eg, section) []:IT
+# Common Name (eg, your name or your server's hostname) []:www.iformtech.fr
+# Email Address []:contact@iformtech.fr
+# A challenge password []:
+# An optional company name []:
+
+# view csr containts
+openssl req -text -noout -in iformtech.fr.csr
+
+# sign certificate request
+openssl x509 -req -in iformtech.fr.csr -CA CA.pem -CAkey CA.key \
+-CAcreateserial -out iformtech.fr.crt -days 825 -sha256
+# passphrase iformtech
+
+# view certificate details
+openssl x509 -in iformtech.fr.crt -text -noout
+
+# send certificate to server
+scp iformtech.fr.crt iformtech.fr.key vagrant@192.168.40.20:/home/vagrant/
+
+
+
+
+
+

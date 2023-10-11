@@ -1,0 +1,29 @@
+« ROURFECUREIXISVCAXMAPOONETOTNC"» avec une clé égale à 34512
+
+Première étape
+--------------
+Découpez le texte à déchiffrer en fonction du nombre d’éléments dans la clé :
+
+Ici, notre clé a une longueur de 5 caractères.
+
+Notre texte a une longueur de 28 caractères.
+
+Deuxième étape
+--------------
+
+Commencez par écrire un tableau qui possède cinq colonnes (la longueur de la clé), et 30/5 = 6 donc six lignes. Complétons ensuite les colonnes par le texte du message à chiffrer :
+
+La première colonne correspond donc à : ROURFE.
+
+La seconde colonne correspond à : CUREIX.
+
+Etc.
+
+Affichez les numéros de colonnes correspondant à la clé :
+
+Troisième étape
+---------------
+
+ Remettez les colonnes dans l’ordre numérique, afin d’obtenir le résultat suivant :
+
+« MERCIATOUSPOURVOTRECONFIANCEXX »

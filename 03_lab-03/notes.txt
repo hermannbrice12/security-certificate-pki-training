@@ -1,0 +1,29 @@
+
+echo "yannick 25 ans CDD" >> rh.txt
+
+# generate public key
+openssl genrsa -aes128 -out private.pem 1024
+# passphrase = iformtech
+
+# print private key
+openssl rsa -in private.pem -noout -text
+
+# generate public key
+openssl rsa -in private.pem -pubout > public.pem
+# passphrase = iformtech
+
+# print public key
+openssl rsa -in public.pem -pubin -text -noout
+
+# encrypt file
+openssl rsautl -encrypt -inkey public.pem  -pubin -in rh.txt -out rh.txt.enc
+cat rh.txt.enc
+
+# decrypt file
+openssl rsautl -decrypt -inkey private.pem -in rh.txt.enc > rh.txt.dec
+# passphrase = iformtech
+cat rh.txt.dec
+
+
+
+
