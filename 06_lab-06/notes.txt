@@ -50,7 +50,7 @@ openssl x509 -req -in iformtech.fr.csr -CA CA.pem -CAkey CA.key \
 openssl x509 -in iformtech.fr.crt -text -noout
 
 # send certificate to server
-scp iformtech.fr.crt iformtech.fr.key vagrant@192.168.40.20:/home/vagrant/
+scp iformtech.fr.crt iformtech.fr.key ubuntu@192.168.40.20:/home/ubuntu/
 
 
 

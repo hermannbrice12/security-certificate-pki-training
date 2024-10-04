@@ -1,4 +1,4 @@
-sudo yum install -y nginx git
+sudo apt install -y nginx git
 
 sudo systemctl start nginx
 sudo systemctl enable nginx
@@ -11,7 +11,7 @@ sudo git clone https://github.com/diranetafen/static-website-example /usr/share/
 
 # prepare certificate on CA server
 
-scp iformtech.fr.crt iformtech.fr.key  vagrant@192.168.40.20:/home/vagrant/
+scp iformtech.fr.crt iformtech.fr.key  ubuntu@192.168.40.20:/home/ubuntu/
 
 
 # configure ssl on webserver
@@ -81,8 +81,8 @@ http {
         server_name  _;
         root         /usr/share/nginx/html;
 
-        ssl_certificate "/home/vagrant/iformtech.fr.crt";
-        ssl_certificate_key "/home/vagrant/iformtech.fr.key";
+        ssl_certificate "/home/ubuntu/iformtech.fr.crt";
+        ssl_certificate_key "/home/ubuntu/iformtech.fr.key";
         ssl_session_cache shared:SSL:1m;
         ssl_session_timeout  10m;
         ssl_ciphers HIGH:!aNULL:!MD5;

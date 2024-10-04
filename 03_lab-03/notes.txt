@@ -1,7 +1,7 @@
 
 echo "yannick 25 ans CDD" >> rh.txt
 
-# generate public key
+# generate private key
 openssl genrsa -aes128 -out private.pem 1024
 # passphrase = iformtech
 
